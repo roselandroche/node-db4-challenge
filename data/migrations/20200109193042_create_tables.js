@@ -7,8 +7,6 @@ exports.up = async function(knex) {
     await knex.schema.createTable("ingredients", (table) => {
         table.increments("id")
         table.string("name").notNull()
-        table.string("amount").notNull()
-        table.string("unit").notNull()
     })
     await knex.schema.createTable("steps", (table) => {
         table.increments("id")
@@ -32,7 +30,7 @@ exports.up = async function(knex) {
     })
 };
 
-exports.down = function(knex) {
+exports.down = async function(knex) {
     await knex.schema.dropTableIfExists("recipes_ingredients")
     await knex.schema.dropTableIfExists("steps")
     await knex.schema.dropTableIfExists("ingredients")
