@@ -6,15 +6,6 @@ const port = process.env.PORT || 4000
 
 server.use(express.json())
 
-server.get("/", async (req, res, next) => {
-    try {
-        res.json(await db("recipes"))
-    }
-    catch(err) {
-        next(err)
-    }
-})
-
 server.use((err, req, res, next) => {
     console.log("Error:", err)
 
