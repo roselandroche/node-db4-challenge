@@ -14,13 +14,3 @@ router.get("/", async (req, res, next) => {
 })
 
 module.exports = router
-
-
-// server.get("/", async (req, res, next) => {
-//     try {
-//         res.json(await db("recipes"))
-//     }
-//     catch(err) {
-//         next(err)
-//     }
-// })

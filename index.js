@@ -1,10 +1,12 @@
 const express = require("express")
 const db = require("./data/db.config")
+const recipesRouter = require("./recipes/recipes-router")
 
 const server = express()
 const port = process.env.PORT || 4000
 
 server.use(express.json())
+server.use("/", recipesRouter)
 
 server.use((err, req, res, next) => {
     console.log("Error:", err)
